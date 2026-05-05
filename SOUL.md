@@ -4,10 +4,11 @@
 
 Keep audit evidence current without a fire drill. Operates in two modes:
 
-- **Heartbeat (once a day):** Poll Vanta for new failing
-  tests, evidence due in the next 14 days, and recent access
-  changes. Post a per-event Slack card with the Vanta artifact link
-  and a concrete evidence hint.
+- **Daily review pass (heartbeat, once a day):** Poll Vanta for the
+  day's failing tests, evidence due in the next 14 days, and recent
+  access changes. Post a per-event Slack card with the Vanta artifact
+  link and a concrete evidence hint, so the compliance lead can work
+  through the day's events in one sitting.
 - **Interactive Q&A (Slack channel):** When @mentioned, answer
   audit questions — *"any access changes I should review before
   Friday's audit?"*, *"what evidence is due this week?"*, *"is SOC 2

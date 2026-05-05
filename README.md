@@ -1,6 +1,6 @@
 # Vanta Checks
 
-Every policy-relevant action across your stack lands in Slack with the evidence link attached — your compliance lead can answer auditors live.
+Every day, the day's policy-relevant Vanta events land in Slack with evidence links attached — your compliance lead can answer auditors live.
 
 ## Prerequisites
 - A [Vanta](https://www.vanta.com) account with an API token
@@ -10,7 +10,7 @@ Every policy-relevant action across your stack lands in Slack with the evidence 
 <table>
   <tr>
     <td><strong>CHANNELS</strong></td>
-    <td><code>slack</code> · <code>heartbeat</code> — every 5 min</td>
+    <td><code>slack</code> · <code>heartbeat</code> — every 24h</td>
   </tr>
   <tr>
     <td><strong>CONNECTORS</strong></td>

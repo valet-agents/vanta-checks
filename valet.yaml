@@ -1,33 +1,27 @@
 name: vanta-checks
 display_name: Vanta Checks
 description: >-
-  Keeps audit evidence current without a fire drill. Watches Vanta
-  for failing tests, evidence due soon, and access changes — posts
-  per-event Slack cards with the artifact link attached, and answers
-  audit questions in Slack on @mention.
+  Every day, posts the day's policy-relevant Vanta events to Slack with evidence links attached — failing tests, evidence due, access changes — so your compliance lead can answer auditors live.
 category: compliance
 
 story:
   hero: "Compliance events in Slack — with the evidence link attached."
   subheadline: >-
-    Every policy-relevant action across your stack lands in Slack with the evidence link attached — your compliance lead can answer auditors live.
+    Every day, the day's policy-relevant Vanta events land in Slack with evidence links attached — your compliance lead can answer auditors live.
   steps:
     - role: trigger
-      title: "A compliance event fires."
+      title: "Every morning."
       body: >-
-        Vanta surfaces a failing test, evidence due in the next two
-        weeks, or a fresh access change.
+        The heartbeat fires once a day and picks up every Vanta event from the past 24 hours.
     - role: action
-      title: "Vanta Checks pulls the artifact."
+      title: "Vanta Checks pulls the artifacts."
       body: >-
-        Reads the finding, control, or access record from Vanta and
-        finds the evidence link your auditor will ask for.
+        Reads the day's findings, controls, and access records from Vanta and gathers the evidence links your auditor will ask for.
       catalog: slack
     - role: outcome
-      title: "An evidence-attached card in Slack."
+      title: "A daily review pass in Slack."
       body: >-
-        One event, one card, one link. Your compliance lead answers
-        auditors live, in-thread.
+        One event, one card, one link. Your compliance lead reviews the day's events together and answers auditors live, in-thread.
       catalog: slack
 
 channels:
