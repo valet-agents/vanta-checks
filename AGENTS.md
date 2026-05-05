@@ -35,7 +35,7 @@ The next heartbeat (within 5 minutes) will detect the connector and start pollin
 ### Channels
 
 - **slack** (slack): The agent's per-agent Slack bot. Listens for @mentions and replies in-thread, and posts per-event compliance cards to whichever channels the bot has been invited to. Slack writes use the auto-injected outbound Slack connector.
-- **heartbeat** (heartbeat): Fires every 5 minutes (`every: 5m`). Declared inline in `valet.yaml`, so it's created automatically by the dashboard setup flow. Polls Vanta for failing tests, evidence due in the next 14 days, and recent access changes.
+- **heartbeat** (heartbeat): Fires once a day (`every: 24h`). Declared inline in `valet.yaml`, so it's created automatically by the dashboard setup flow. Polls Vanta for failing tests, evidence due in the next 14 days, and recent access changes.
 
 ### Secrets
 
@@ -52,6 +52,6 @@ The next heartbeat (within 5 minutes) will detect the connector and start pollin
 
 ## Customizing
 
-- **Change the heartbeat interval**: edit `every` on the `heartbeat` channel in `valet.yaml` (e.g. `15m`, `1h`), then redeploy. Five minutes is the default for live audits; one hour is reasonable in steady state.
+- **Change the heartbeat interval**: edit `every` on the `heartbeat` channel in `valet.yaml`, then redeploy. The default `24h` runs a daily compliance review; drop it to `1h` (or lower) during a live audit when you want findings as they appear.
 - **Watched categories**: the SOUL workflow polls failing tests, evidence due in 14 days, and access changes. Edit the **Heartbeat Workflow** section in `SOUL.md` to add or remove categories (e.g. drop access changes if your workspace audit log is too noisy, or add `list_findings` for a separate severity-grouped post).
 - **Control where cards post**: invite or remove the bot from channels in Slack — that's the only signal the agent uses. There is no channel name in the configuration.

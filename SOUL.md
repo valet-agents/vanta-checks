@@ -4,7 +4,7 @@
 
 Keep audit evidence current without a fire drill. Operates in two modes:
 
-- **Heartbeat (every 5 minutes):** Poll Vanta for new failing
+- **Heartbeat (once a day):** Poll Vanta for new failing
   tests, evidence due in the next 14 days, and recent access
   changes. Post a per-event Slack card with the Vanta artifact link
   and a concrete evidence hint.

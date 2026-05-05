@@ -45,5 +45,5 @@ channels:
       done_note: "Bot ready — invite it to a channel"
 
   - type: heartbeat
-    every: 5m
-    description: "Polls Vanta every 5 minutes for failing tests, evidence due soon, and access changes."
+    every: 24h
+    description: "Polls Vanta once a day for failing tests, evidence due soon, and access changes."
