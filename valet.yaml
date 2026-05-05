@@ -1,0 +1,49 @@
+name: vanta-checks
+display_name: Vanta Checks
+description: >-
+  Keeps audit evidence current without a fire drill. Watches Vanta
+  for failing tests, evidence due soon, and access changes — posts
+  per-event Slack cards with the artifact link attached, and answers
+  audit questions in Slack on @mention.
+category: compliance
+
+story:
+  hero: "Compliance events in Slack — with the evidence link attached."
+  subheadline: >-
+    Every policy-relevant action across your stack lands in Slack with the evidence link attached — your compliance lead can answer auditors live.
+  steps:
+    - role: trigger
+      title: "A compliance event fires."
+      body: >-
+        Vanta surfaces a failing test, evidence due in the next two
+        weeks, or a fresh access change.
+    - role: action
+      title: "Vanta Checks pulls the artifact."
+      body: >-
+        Reads the finding, control, or access record from Vanta and
+        finds the evidence link your auditor will ask for.
+      catalog: slack
+    - role: outcome
+      title: "An evidence-attached card in Slack."
+      body: >-
+        One event, one card, one link. Your compliance lead answers
+        auditors live, in-thread.
+      catalog: slack
+
+channels:
+  - catalog: slack
+    description: >-
+      The agent gets its own Slack bot. Invite it to your compliance
+      or audit channel and it posts per-event cards there. @mention
+      it for ad-hoc questions like "what evidence is due this week?"
+    ui:
+      headline: "Give Vanta Checks a Slack bot."
+      blurb: >-
+        The agent posts compliance cards to every channel you invite
+        it to. Invite it to one focused audit channel, or several —
+        whatever matches your team.
+      done_note: "Bot ready — invite it to a channel"
+
+  - type: heartbeat
+    every: 5m
+    description: "Polls Vanta every 5 minutes for failing tests, evidence due soon, and access changes."
